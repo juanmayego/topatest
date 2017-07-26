@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ABM</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#EDF1F2;">
+
+<div class="container">
+  <h2>Topa ABM Test</h2>
+     
+   <div align="right">
+  		 <a href="{% url "producto_new" %}" class="btn btn-info"><i class="icon-user icon-white">Crear Nuevo</a> 
+    </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for producto in object_list %}
+        <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            
+    		<td align="center">
+              <a href="{% url "producto_edit" producto.id %}" class="btn btn-default"><em class="fa fa-pencil">Editar</em></a>
+              <a href="{% url "producto_delete" producto.id %}" class="btn btn-danger"><em class="fa fa-trash">Eliminar</em></a>
+            </td>
+        </tr>
+            {% endfor %}
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
